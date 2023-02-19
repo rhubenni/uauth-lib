@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Rtelesco\UAuth;
+namespace Rtelesco\UauthLib;
 
 trait Local {
     

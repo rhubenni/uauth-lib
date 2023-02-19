@@ -24,7 +24,7 @@ class AuthService
 {
     
     private static Connection|null $conn = null;
-    private static string $_configFile = '';
+    public static string $_configFile = '';
     private static array $_config = [];
     public static $current_user;
     public string $last_permission_message = '';
@@ -43,12 +43,12 @@ class AuthService
      * 
      * @static
      */
-    private static function get_connection(string|null $yaml = null): void
+    private static function get_connection(): void
     {
         if(!self::$conn) {
-            self::$_configFile = $yaml ?? dirname(__FILE__) . DIRECTORY_SEPARATOR . 'uauthconf.yaml';
-            if(!\file_exists(self::$_configFile)) {
-                throw new \Exception("The config file for UATH don't seems to exists :/");
+            $yaml = self::$_configFile ?? dirname(__FILE__) . DIRECTORY_SEPARATOR . 'uauthconf.yaml';
+            if(!\file_exists($conf)) {
+                throw new \Exception("The config file for UATHLIB don't seems to exists :/");
             }
             self:: $_config = Yaml::parseFile($yaml ?? self::$_configFile);
             self::$conn = DriverManager::getConnection(self::$_config['database_connection']);

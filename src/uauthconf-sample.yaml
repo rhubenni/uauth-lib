@@ -1,0 +1,9 @@
+
+database_connection:
+    driver: pdo-mysql
+    host: localhost
+    user: user
+    password: pass
+    dbname: db_uauth
+    
+    

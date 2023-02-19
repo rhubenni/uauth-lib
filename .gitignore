@@ -1,0 +1,4 @@
+composer.phar
+/vendor/
+/src/uauthconf.yaml
+/nbproject
